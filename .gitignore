@@ -35,5 +35,5 @@ yarn-error.log*
 next-env.d.ts
 
 #idea files
-/.idea
-```
+.DS_Store
+.idea
