@@ -5,7 +5,7 @@
 Celem projektu jest stworzenie aplikacji umożliwiającej użytkownikom zamawianie jedzenia z restauracji online. Aplikacja będzie responsywna i będzie działać na różnych urządzeniach, takich jak komputery, tablety i smartfony. Użytkownicy będą mogli przeglądać oferty różnych restauracji, składać zamówienia i wybierać opcje dostawy do domu lub odbioru w restauracji.
 
 ## Instalacja
-1. Sklonuj repozytorium: `git clone [https://github.com/twoj-uzytkownik/SIEMA.git]`
+1. Sklonuj repozytorium: `git clone https://github.com/chlorcl/restaurant-app`
 2. Wejdź do katalogu: `cd PysznePl`
 3. Zainstaluj zależności: `npm install`
 
