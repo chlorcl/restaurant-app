@@ -6,7 +6,7 @@ Celem projektu jest stworzenie aplikacji umożliwiającej użytkownikom zamawian
 
 ## Instalacja
 1. Sklonuj repozytorium: `git clone https://github.com/chlorcl/restaurant-app`
-2. Wejdź do katalogu: `cd PysznePl`
+2. Wejdź do katalogu: `cd restaurant-app`
 3. Zainstaluj zależności: `npm install`
 
 ## Uruchamianie
