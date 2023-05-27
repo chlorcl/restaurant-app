@@ -1,0 +1,8 @@
+**/.next
+**/prisma
+**/public
+*.config.js
+*.json
+*.d.ts
+*.md
+*.env
