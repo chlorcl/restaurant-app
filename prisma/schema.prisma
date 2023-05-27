@@ -1,0 +1,178 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Adress {
+  id        Int      @id @default(autoincrement())
+  street    String
+  number    String
+  city      String
+  state     String
+  country   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Permission {
+  id       Int      @id @default(autoincrement())
+  name     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  adminId  Int
+  admin    Administrator @relation(fields: [adminId], references: [id])
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  adress   Adress[]
+  orders   Order[]
+  carts    Cart[]
+}
+
+model Employee {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  jobTitle  String
+  restaurantId Int
+  restaurant Restaurant @relation(fields: [restaurantId], references: [id])
+  deliveries Delivery[]
+}
+
+model Administrator {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  permissions Permission[]
+}
+
+model Restaurant {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  adressId  Int
+  adress    String
+  employees Employee[]
+  menus     Menu[]
+  orders    Order[]
+  carts     Cart[]
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  quantity    Int
+  price       Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+  menuId      Int
+  menu        Menu     @relation(fields: [menuId], references: [id])
+  orders      Order[]
+  promotions  Promotion[]
+  carts       Cart[]
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id])
+}
+
+model Menu {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+  restaurantId Int
+  restaurant  Restaurant @relation(fields: [restaurantId], references: [id])
+  products    Product[]
+}
+
+model Order {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  restaurantId Int
+  restaurant  Restaurant @relation(fields: [restaurantId], references: [id])
+  products    Product[]
+  totalPrice  Float
+  deliveryId  Int
+  delivery    Delivery @relation(fields: [deliveryId], references: [id])
+}
+
+model Delivery {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+  status      String
+  order       Order[]
+  employeeId  Int
+  employee    Employee @relation(fields: [employeeId], references: [id])
+}
+
+model Promotion {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+  name        String
+  description String
+  price       Float?
+  discount    Float?
+  productId   Int
+  product     Product  @relation(fields: [productId], references: [id])
+}
+
+model Cart {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  restaurantId Int
+  restaurant  Restaurant @relation(fields: [restaurantId], references: [id])
+  products    Product[]
+  totalPrice  Float
+}
+
+model Category {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+  name        String
+  description String
+  products    Product[]
+}
