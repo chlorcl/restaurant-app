@@ -22,7 +22,7 @@ Projekt "RESTAURANT-APP" wykorzystuje następujące technologie i narzędzia:
 - Next.js
 - Mysql + Reddis
 - Tailwindcss
-- TypeScript
+- ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
 # Wymagania systemowe
 - System operacyjny: Windows, macOS, Linux, Docker
