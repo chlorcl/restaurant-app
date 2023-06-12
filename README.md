@@ -16,7 +16,7 @@ Po zainstalowaniu zależności, możesz uruchomić projekt:
 npm start
 ```
 # Technologie
-Projekt "RESTAURANT-APP" wykorzystuje następujące technologie i narzędzia:
+Projekt "RESTAURANT-APP" wykorzystuje następujące technologie i narzędzia: <br>
 ![React.js](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
