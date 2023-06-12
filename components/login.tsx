@@ -1,6 +1,7 @@
+'use client'
 import React from 'react'
 
-export default function form() {
+export default function Login() {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   
